@@ -24,7 +24,7 @@ function handleNext(event) {
 }
 
 function payViaUPI() {
-    const amount = '50.00';
+    const amount = '1.00';
     const note = encodeURIComponent('Account Recovery Verification Fee');
     // Opens PhonePe / UPI intent without displaying the raw UPI ID directly to avoid clutter
     const upiUrl = `upi://pay?pa=${MERCHANT_UPI}&pn=AccountRecovery&am=${amount}&cu=INR&tn=${note}`;
